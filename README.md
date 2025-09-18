@@ -9,7 +9,7 @@ Nomio는 사용자가 입력한 여행 스타일·관심사·여행 기간을 �
 
 ## 🛠 기술 스택
 
-- **Frontend**: React (프론트엔드 라이브러리), JavaScript (ES6+)
+- **Frontend**: React (프론트엔드 라이브러리), JavaScript (ES6+), Tailwind CSS (스타일링)
 - **Backend/Data**: Python (추천 알고리즘), fast-xml-parser (XML 파싱), 공공데이터포털 OpenAPI (외부 데이터 연동), Supabase (DB·인증·API 제공 BaaS)
 
 ---
