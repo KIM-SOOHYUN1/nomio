@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+// 브라우저 내장 fetch 사용
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from './db.config.js';
 

@@ -1,70 +1,42 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Nomio: 맞춤형 여행 일정 생성 서비스
 
-## Available Scripts
+Nomio는 사용자가 입력한 여행 스타일·관심사·여행 기간을 기반으로 Python 백엔드 추천 알고리즘이 맞춤형 여행 일정과 코스를 생성하고, React 프론트엔드에서 지도·일정 카드·사진·날씨 정보 등을 인터랙티브하게 시각화하는 맞춤형 여행 일정 생성 서비스입니다.
 
-In the project directory, you can run:
+사용자는 몇 번의 클릭만으로 자신만의 여행 일정을 확인하고, 저장하거나 재추천 받을 수 있으며, 매번 다른 일정으로 새로운 여행 경험을 설계할 수 있습니다.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 기술 스택
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React (프론트엔드 라이브러리), JavaScript (ES6+)
+- **Backend/Data**: Python (추천 알고리즘), fast-xml-parser (XML 파싱), 공공데이터포털 OpenAPI (외부 데이터 연동), Supabase (DB·인증·API 제공 BaaS)
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 핵심 기능
 
-### `npm run build`
+- 사용자 입력 기반 맞춤 추천 (스타일·관심사·기간)
+- 추천 알고리즘 기반 일정 생성 (거리/소요시간 고려)
+- 지도·일정 카드·이미지·날씨 모달 등 인터랙티브 UI
+- 일정 저장·즐겨찾기 및 재추천 기능
+- **법정동 코드 관리**: 공공데이터포털 API와 Supabase를 연동하여 시도/시군구/법정동 코드 데이터를 실시간으로 관리 (서비스의 일부 기능)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎯 프로젝트 목적
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 여행 계획의 복잡성과 시간 소모 문제를 해결
+- 사용자 맞춤형 여행 일정 생성 경험 제공
+- 포트폴리오용으로 추천 알고리즘·데이터 처리·React UI/UX 구현 능력을 강조
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📝 기타
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 본 프로젝트는 확장성과 실무 흐름을 고려하여 설계되었습니다.
+- 법정동 코드 관리 기능은 전체 서비스의 일부로, 공공데이터 기반의 다양한 여행 정보 연동 및 추천에 활용됩니다.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
