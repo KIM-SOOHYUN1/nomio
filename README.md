@@ -41,10 +41,27 @@ Nomio는 사용자가 입력한 여행 스타일·관심사·여행 기간을 �
 - `src/db.config.js` : Supabase DB 접속 정보
 
 ---
-## 기타
+## 아키텍처
 
-- 법정동 코드 관리 기능은 전체 서비스의 일부로, 공공데이터 기반의 다양한 여행 정보 연동 및 추천에 활용을 위해 추가함.
-
+        [사용자 브라우저]
+                │
+                ▼
+        React (JavaScript ES6+) ──────► Nomio Frontend
+                │ (REST API 호출)
+                ▼
+        ────────────────────────────────────────────────────────
+                │
+                ▼
+        Python Backend (FastAPI/Flask)
+        ├─ 추천 알고리즘 (Python)
+        ├─ 공공데이터포털 OpenAPI 연동
+        │     └─ fast-xml-parser로 XML → JSON 파싱
+        ├─ Supabase 연동 (DB / 인증 / API)
+        ────────────────────────────────────────────────────────
+                │
+                ▼
+        Supabase (DB, 인증, API)
+        공공데이터포털 OpenAPI (외부 데이터 제공)
 ---
 
 
