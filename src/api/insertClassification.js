@@ -15,13 +15,13 @@ export async function fetchAndInsertClassification() {
         for (const item of items) {
             const { lclsSystm1Cd, lclsSystm1Nm, lclsSystm2Cd , lclsSystm2Nm , lclsSystm3Cd, lclsSystm3Nm  } = item;
             const { data: insertData, error } = await supabase.from('TB_CLASSIFICATION_CODE').insert({
-                SEQ_NO: seqNo++,
-                CLASS1_CODE: lclsSystm1Cd,
-                CLASS1_NAME: lclsSystm1Nm,
-                CLASS2_CODE: lclsSystm2Cd,
-                CLASS2_NAME: lclsSystm2Nm,
-                CLASS3_CODE: lclsSystm3Cd,
-                CLASS3_NAME: lclsSystm3Nm
+                SEQ_NO: seqNo++,            //순번
+                CLASS1_CODE: lclsSystm1Cd,  //대분류코드
+                CLASS1_NAME: lclsSystm1Nm,  //대분류명
+                CLASS2_CODE: lclsSystm2Cd,  //중분류코드
+                CLASS2_NAME: lclsSystm2Nm,  //중분류명
+                CLASS3_CODE: lclsSystm3Cd,  //소분류코드
+                CLASS3_NAME: lclsSystm3Nm   //소분류명
             });
             if (error) {
                 console.error('Insert 실패:', error.message);

@@ -37,7 +37,11 @@ export async function fetchAndInsertTbSigungu() {
 			console.error('숫자 변환 실패:', { code, sidoCode });
 			continue;
 		}
-		console.log('Insert 시도:', { SIGUNGU_CODE: sigunguCodeNum, SIGUNGU_NAME: name, SIDO_CODE: sidoCodeNum });
+		console.log('Insert 시도:', { 
+            SIGUNGU_CODE: sigunguCodeNum,   //시군구코드
+            SIGUNGU_NAME: name,             //시군구명
+            SIDO_CODE: sidoCodeNum          //시도코드
+        });
 		const { data, error } = await supabase.from('TB_SIGUNGU').insert({ SIGUNGU_CODE: sigunguCodeNum, SIGUNGU_NAME: name, SIDO_CODE: sidoCodeNum });
 		if (error) {
 			console.error('Insert 실패:', error.message);

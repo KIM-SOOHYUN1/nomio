@@ -38,8 +38,10 @@ export async function fetchAndInsertSido() {
 
   const supabase = createClient(SUPABASE_DB_URL, SUPABASE_ANON_KEY);
   for (const [sidoCode, sidoName] of sidoSet.entries()) {
-    console.log('Insert 시도:', { sido_code: sidoCode, sido_name: sidoName });
-    const { data, error } = await supabase.from('SIDO_CODE').insert({ sido_code: sidoCode, sido_name: sidoName });
+    const { data, error } = await supabase.from('SIDO_CODE').insert({ 
+        sido_code: sidoCode,    //시도코드
+        sido_name: sidoName     //시도명
+    });
     if (error) {
       console.error('Insert 실패:', error.message);
     } else {

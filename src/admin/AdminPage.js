@@ -13,9 +13,13 @@ import TourTypeComponent from './components/TourTypeComponent';
 function AdminPage() {
   // 메뉴 분기만 담당
   const menu = [
-    { key: 'legal-dong', label: '법정동 관리' },
-    { key: 'classification', label: '분류체계 관리' },
-    { key: 'tour-type', label: '관광서비스분류 관리' },
+    // 공통
+    { key: 'legal-dong', label: '법정동 관리', group: 'common' },
+    { key: 'classification', label: '분류체계 관리', group: 'common' },
+    { key: 'tour-type', label: '관광서비스분류 관리', group: 'common' },
+    // 여행지 관리
+    { key: 'place-list', label: '여행지 목록', group: 'place' },
+    { key: 'place-category', label: '여행지 카테고리', group: 'place' },
   ];
   const [activeMenu, setActiveMenu] = useState('legal-dong');
 
@@ -24,6 +28,8 @@ function AdminPage() {
       {activeMenu === 'legal-dong' && <LegalDongComponent />}
       {activeMenu === 'classification' && <ClassificationComponent />}
       {activeMenu === 'tour-type' && <TourTypeComponent />}
+      {activeMenu === 'place-list' && <div>여행지 목록 관리 컴포넌트(추후 구현)</div>}
+      {activeMenu === 'place-category' && <div>여행지 카테고리 관리 컴포넌트(추후 구현)</div>}
     </AdminLayout>
   );
 }
