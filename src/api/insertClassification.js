@@ -1,3 +1,4 @@
+// 분류체계 등록 기능
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from '../db.config.js';
 

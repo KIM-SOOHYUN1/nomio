@@ -1,4 +1,4 @@
-// 시도 등록 기능 (브라우저 내장 fetch 사용)
+// 시도 등록 기능 
 import { createClient } from '@supabase/supabase-js';
 import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from '../db.config.js';
 
