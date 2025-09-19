@@ -21,7 +21,7 @@ function LegalDongComponent() {
       setLoading(true);
       setMessage("");
       try {
-        const result = await fetchSidoWithSigungu();
+  const result = await fetchSidoWithSigungu();
         setSigunguRows(result || []);
       } catch (e) {
         setMessage('에러: ' + e.message);
@@ -50,7 +50,7 @@ function LegalDongComponent() {
     setLoading(true);
     setMessage("");
     try {
-      await fetchAndInsertSido();
+  await fetchAndInsertSido();
       setMessage('시도 코드 DB insert 완료');
     } catch (e) {
       setMessage('에러: ' + e.message);
@@ -63,7 +63,7 @@ function LegalDongComponent() {
     setLoading(true);
     setMessage("");
     try {
-      await fetchAndInsertTbSigungu();
+  await fetchAndInsertTbSigungu();
       setMessage('시군구 코드 DB insert 완료');
     } catch (e) {
       setMessage('에러: ' + e.message);

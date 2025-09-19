@@ -2,8 +2,9 @@
 // AdminPage.js: 법정동 관리 메뉴 및 CRUD UI의 시작점
 import React, { useState, useEffect } from 'react';
 import AdminLayout from './AdminLayout';
-import CategoryComponent from './components/CategoryComponent';
+import ClassificationComponent from './components/ClassificationComponent';
 import LegalDongComponent from './components/LegalDongComponent';
+import TourTypeComponent from './components/TourTypeComponent';
 
 // AdminPage: 법정동(시도/시군구) 관리 메인 페이지
 // - 시도/시군구 코드 DB insert, 조인 리스트 조회, 검색, 더보기 등 실무형 관리자 기능 구현
@@ -13,13 +14,16 @@ function AdminPage() {
   // 메뉴 분기만 담당
   const menu = [
     { key: 'legal-dong', label: '법정동 관리' },
-    { key: 'category', label: '카테고리 관리' },
+    { key: 'classification', label: '분류체계 관리' },
+    { key: 'tour-type', label: '관광서비스분류 관리' },
   ];
   const [activeMenu, setActiveMenu] = useState('legal-dong');
 
   return (
     <AdminLayout menu={menu} onMenuClick={setActiveMenu} activeMenu={activeMenu}>
-      {activeMenu === 'legal-dong' ? <LegalDongComponent /> : <CategoryComponent />}
+      {activeMenu === 'legal-dong' && <LegalDongComponent />}
+      {activeMenu === 'classification' && <ClassificationComponent />}
+      {activeMenu === 'tour-type' && <TourTypeComponent />}
     </AdminLayout>
   );
 }
