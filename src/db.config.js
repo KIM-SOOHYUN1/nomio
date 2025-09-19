@@ -1,3 +1,3 @@
-// DB 접근 정보 
+// src/db/db.config.js
 export const SUPABASE_DB_URL="https://mkajpxquazrmcsaflyer.supabase.co";
 export const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1rYWpweHF1YXpybWNzYWZseWVyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxNTg2NzYsImV4cCI6MjA3MzczNDY3Nn0.JTeZFGGvHDzVNM3YmsXpPiqMhOTvUnS7bzPKVxqI3AQ";

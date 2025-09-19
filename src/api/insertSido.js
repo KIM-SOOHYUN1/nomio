@@ -1,7 +1,6 @@
-
 // 시도 등록 기능 (브라우저 내장 fetch 사용)
 import { createClient } from '@supabase/supabase-js';
-import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from './db.config.js';
+import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from '../db.config.js';
 
 const SIDO_API_URL = 'https://apis.data.go.kr/B551011/KorService2/ldongCode2?serviceKey=2fb14dd2acb0254316d5192d49e5cfd398a5e5a9d9cf17e54bbbe9a9099d254f&numOfRows=1000&MobileOS=ETC&MobileApp=APP&lDongListYn=Y';
 
