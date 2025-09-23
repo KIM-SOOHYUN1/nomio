@@ -1,6 +1,6 @@
 // TB_SIDO와 TB_SIGUNGU를 조인하여 조회하는 함수 (select 전용)
 import { createClient } from '@supabase/supabase-js';
-import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from '../db.config.js';
+import { SUPABASE_DB_URL, SUPABASE_ANON_KEY } from '../../db.config.js';
 
 export async function fetchSidoWithSigungu() {
 	const supabase = createClient(SUPABASE_DB_URL, SUPABASE_ANON_KEY);

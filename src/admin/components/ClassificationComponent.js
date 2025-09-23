@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { fetchAndInsertClassification } from '../../api/insertClassification';
-import { fetchClassification } from '../../db/selectClassification';
+import { fetchClassification } from '../../db/admin/selectClassification';
 
 function CategoryComponent() {
   // 카테고리코드 DB insert

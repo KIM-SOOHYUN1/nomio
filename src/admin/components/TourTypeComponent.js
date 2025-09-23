@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchServiceClassification } from '../../db/selectTourType';
+import { fetchServiceClassification } from '../../db/admin/selectTourType';
 
 
 function TourTypeComponent() {
