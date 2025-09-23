@@ -17,13 +17,17 @@ function NaverMapWithMarkers({ markers = [] }) {
         mapInstance.current = new window.naver.maps.Map(mapRef.current, {
           center: markers[0]
             ? new window.naver.maps.LatLng(markers[0].lat, markers[0].lng)
-            : new window.naver.maps.LatLng(37.5665, 126.9780),
-          zoom: 12,
+            : new window.naver.maps.LatLng(36.5, 127.8), // 대한민국 중심부
+          zoom: markers[0] ? 12 : 7, // 마커 없으면 전국이 보이게(zoom 7)
           mapTypeControl: true,
           mapTypeControlOptions: {
             style: window.naver.maps.MapTypeControlStyle.BUTTON,
             position: window.naver.maps.Position.TOP_RIGHT,
           },
+        });
+        // 지도 클릭 시 모든 InfoWindow 닫기
+        window.naver.maps.Event.addListener(mapInstance.current, 'click', () => {
+          infoWindowInstances.current.forEach(iw => iw.close());
         });
         updateMarkers();
       }
@@ -75,7 +79,7 @@ function NaverMapWithMarkers({ markers = [] }) {
       }
 
       const infoHtml = `
-        <div style="width:250px;max-width:250px;background:#fff;border-radius:18px;box-shadow:0 4px 16px 0 rgba(0,0,0,0.13);overflow:hidden;font-family:'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;">
+        <div style="width:240px;max-width:250px;background:#fff;border-radius:18px;box-shadow:0 4px 16px 0 rgba(0,0,0,0.13);overflow:hidden;font-family:'Segoe UI','Apple SD Gothic Neo','Malgun Gothic',sans-serif;">
           <div style='width:100%;height:170px;overflow:hidden;position:relative;background:#f4f5f7;'>
             <img src="${imageUrl}" style="width:100%;object-fit:cover;display:block;" onerror="this.src='${imageUrl}'" />
             <div style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.85);padding:3px 10px 3px 10px;border-radius:12px;font-size:0.92em;color:#444;font-weight:500;box-shadow:0 1px 4px 0 rgba(0,0,0,0.06);">최근 수정일: ${MODI_DT}</div>
