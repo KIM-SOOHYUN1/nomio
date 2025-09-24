@@ -1,6 +1,6 @@
 
 // AdminPage.js: 법정동 관리 메뉴 및 CRUD UI의 시작점
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import AdminLayout from './AdminLayout';
 import LegalDongComponent from './components/LegalDongComponent'; // 법정동 관리 컴포넌트
 import ClassificationComponent from './components/ClassificationComponent'; // 분류체계 관리 컴포넌트

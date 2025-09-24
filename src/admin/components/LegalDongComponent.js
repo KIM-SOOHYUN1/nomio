@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { fetchSidoWithSigungu } from '../../db/admin/selectSidoWithSigungu';
 import { fetchAndInsertSido } from '../../api/insertSido';
 import { fetchAndInsertTbSigungu } from '../../api/insertTbSigungu';

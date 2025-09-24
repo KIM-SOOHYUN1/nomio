@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ClassifictionCat from '../planer/components/ClassifictionCat.js';
 import NaverMapWithMarkers from '../planer/components/NaverMapWithMarkers.js';
+import NaverDirectionsTest from '../planer/components/NaverDirectionsTest.js';
 import { selectSido } from '../db/planer/selectSido.js';
 import { selectSigungu } from '../db/planer/selectSigungu.js';
 import { selectTourSpot } from '../db/planer/selectTourSpot.js';
@@ -15,6 +16,7 @@ function PlanerPage() {
   const [selectedSido, setSelectedSido] = useState(null);
   const [selectedSigungu, setSelectedSigungu] = useState(null);
   const [categoryMarkers, setCategoryMarkers] = useState(null); // 카테고리 선택시 마커 후보
+  const [mapInstance, setMapInstance] = useState(null); // 네이버 지도 인스턴스
 
   useEffect(() => {
     selectSido().then(setSidoList);
@@ -146,7 +148,14 @@ function PlanerPage() {
           borderRadius: '12px',
           border: '1px solid #cbd5e1'
         }}>
-          <NaverMapWithMarkers markers={markers} />
+          <NaverMapWithMarkers markers={markers} onMapInstance={setMapInstance} />
+          {/* 지도에 표시된 마커만 경로 연결 (시도만 선택시 길찾기 제외) */}
+          {markers.length > 1 && mapInstance && (selectedSigungu || categoryMarkers) && (
+            <NaverDirectionsTest
+              tourSpots={markers}
+              mapInstance={mapInstance}
+            />
+          )}
         </div>
       </div>
     </div>

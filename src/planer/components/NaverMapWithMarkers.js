@@ -1,15 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 // 네이버 지도 API 키를 입력하세요
 const NAVER_MAP_CLIENT_ID = '6s5t4ltpe8'; // 실제 발급받은 client id로 교체
 
 
-function NaverMapWithMarkers({ markers = [] }) {
+function NaverMapWithMarkers({ markers = [], onMapInstance }) {
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
   const markerInstances = useRef([]);
   const infoWindowInstances = useRef([]);
-  const [activeImageIdx, setActiveImageIdx] = useState(0);
 
   useEffect(() => {
     function createMap() {
@@ -29,6 +28,7 @@ function NaverMapWithMarkers({ markers = [] }) {
         window.naver.maps.Event.addListener(mapInstance.current, 'click', () => {
           infoWindowInstances.current.forEach(iw => iw.close());
         });
+        if (onMapInstance) onMapInstance(mapInstance.current);
         updateMarkers();
       }
     }
@@ -59,7 +59,7 @@ function NaverMapWithMarkers({ markers = [] }) {
     infoWindowInstances.current = [];
     if (!window.naver || !mapInstance.current) return;
     markers.forEach((markerData, idx) => {
-      const { lat, lng, label, TITLE, ADDR1, ADDR2, FIRST_IMAGE_URL, SECOND_IMAGE_URL, MODIFIED_DT } = markerData;
+      const { lat, lng, label, TITLE, ADDR1, ADDR2, TEL_NO, FIRST_IMAGE_URL, SECOND_IMAGE_URL, MODIFIED_DT } = markerData;
       const marker = new window.naver.maps.Marker({
         position: new window.naver.maps.LatLng(lat, lng),
         map: mapInstance.current,
@@ -67,7 +67,7 @@ function NaverMapWithMarkers({ markers = [] }) {
       });
       markerInstances.current.push(marker);
 
-      let MODI_DT = `${MODIFIED_DT.slice(0,4)}.${MODIFIED_DT.slice(4,6)}.${MODIFIED_DT.slice(6,8)} ${MODIFIED_DT.slice(8,10)}:${MODIFIED_DT.slice(10,12)}:${MODIFIED_DT.slice(12,14)}`;
+      let MODI_DT = `${MODIFIED_DT.slice(0,4)}.${MODIFIED_DT.slice(4,6)}.${MODIFIED_DT.slice(6,8)}`;
 
       let imageUrl = '';
       if (SECOND_IMAGE_URL) {
@@ -87,6 +87,7 @@ function NaverMapWithMarkers({ markers = [] }) {
           <div style="padding:16px 16px 12px 16px;">
             <div style="font-weight:700;font-size:1.13em;color:#222;letter-spacing:-0.5px;line-height:1.3;margin-bottom:6px;">${TITLE || label || ''}</div>
             <div style="color:#666;font-size:0.98em;line-height:1.5;word-break:keep-all;">${ADDR1 || ''} ${ADDR2 || ''}</div>
+            <div style="color:#666;font-size:0.98em;line-height:1.5;word-break:keep-all;">${TEL_NO || ''}</div>
           </div>
         </div>
       `;
